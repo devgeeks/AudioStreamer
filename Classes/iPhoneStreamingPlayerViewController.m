@@ -240,7 +240,6 @@
 //
 - (void)presentAlertWithTitle:(NSString*)title message:(NSString*)message
 {
-#if TARGET_OS_IPHONE
 	UIAlertView *alert = [
 						  [[UIAlertView alloc]
 						   initWithTitle:title
@@ -254,20 +253,6 @@
 	 onThread:[NSThread mainThread]
 	 withObject:nil
 	 waitUntilDone:NO];
-#else
-	NSAlert *alert =
-	[NSAlert
-	 alertWithMessageText:title
-	 defaultButton:NSLocalizedString(@"OK", @"")
-	 alternateButton:nil
-	 otherButton:nil
-	 informativeTextWithFormat:message];
-	[alert
-	 performSelector:@selector(runModal)
-	 onThread:[NSThread mainThread]
-	 withObject:nil
-	 waitUntilDone:NO];
-#endif
 }
 
 //

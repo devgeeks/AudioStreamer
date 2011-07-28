@@ -238,6 +238,31 @@
 }
 
 //
+// presentAlertWithTitle:message:
+//
+// Common code for presenting error dialogs
+//
+// Parameters:
+//    title - title for the dialog
+//    message - main text for the dialog
+//
+- (void)presentAlertWithTitle:(NSString*)title message:(NSString*)message
+{
+	NSAlert *alert =
+	[NSAlert
+	 alertWithMessageText:title
+	 defaultButton:NSLocalizedString(@"OK", @"")
+	 alternateButton:nil
+	 otherButton:nil
+	 informativeTextWithFormat:message];
+	[alert
+	 performSelector:@selector(runModal)
+	 onThread:[NSThread mainThread]
+	 withObject:nil
+	 waitUntilDone:NO];
+}
+
+//
 // updateProgress:
 //
 // Invoked when the AudioStreamer
