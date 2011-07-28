@@ -164,6 +164,10 @@ extern NSString * const ASStatusChangedNotification;
 								// time)
 	double packetDuration;		// sample rate times frames per packet
 	double lastProgress;		// last calculated progress point
+	
+	NSString *error;			// Error message to be handed back
+	NSString *errorMessage;		// to the main thread
+	
 #if TARGET_OS_IPHONE
 	BOOL pausedByInterruption;
 #endif
@@ -175,6 +179,10 @@ extern NSString * const ASStatusChangedNotification;
 @property (readonly) double duration;
 @property (readwrite) UInt32 bitRate;
 @property (readonly) NSDictionary *httpHeaders;
+
+@property (copy,readwrite) NSString *error;
+@property (copy,readwrite) NSString *errorMessage;
+
 
 - (id)initWithURL:(NSURL *)aURL;
 - (void)start;
