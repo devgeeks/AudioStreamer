@@ -25,7 +25,7 @@
 #import <UIKit/UIKit.h>
 #else
 #import <Cocoa/Cocoa.h>
-#endif TARGET_OS_IPHONE			
+#endif // TARGET_OS_IPHONE			
 
 #include <pthread.h>
 #include <AudioToolbox/AudioToolbox.h>
@@ -194,6 +194,7 @@ extern NSString * const ASStatusChangedNotification;
 - (BOOL)isPaused;
 - (BOOL)isWaiting;
 - (BOOL)isIdle;
+- (BOOL)isStopped;
 - (void)seekToTime:(double)newSeekTime;
 - (double)calculatedBitRate;
 

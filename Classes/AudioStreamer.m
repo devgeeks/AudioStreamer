@@ -532,6 +532,22 @@ void ASReadStreamCallBack
 }
 
 //
+// isStopped
+//
+// returns YES if the AudioStream is in the AS_STOPPED state (i.e.
+// isn't doing anything).
+//
+- (BOOL)isStopped
+{
+	if (state == AS_STOPPED)
+	{
+		return YES;
+	}
+	
+	return NO;
+}
+
+//
 // hintForFileExtension:
 //
 // Generates a first guess for the file type based on the file's extension
